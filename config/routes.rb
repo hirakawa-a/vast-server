@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    root to: 'campaigns#index'
+    
+    get 'new', to: 'campaigns#new'
+    
+    resources :campaign
+    resources :cuepoints
+    resources :results, only:[:index]
+    resources :campaign_cuepoints
 end

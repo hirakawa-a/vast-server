@@ -1,0 +1,24 @@
+<h1>キャンペーン一覧</h1>
+<%= link_to '登録', new_path, class: 'btn' %>
+<table class="table">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>start</th>
+        <th>end</th>
+        <th>goal</th>
+        <th>create</th>
+        <th>update</th>
+    </tr>
+    <% @campaigns.each do |campaign| %>
+        <tr>
+            <th><%= campaign.id %></th>
+            <th><%= campaign.name %></th>
+            <th><%= campaign.start_at %></th>
+            <th><%= campaign.end_at %></th>
+            <th><%= campaign.limit_start %></th>
+            <th><%= campaign.created_at %></th>
+            <th><%= campaign.updated_at %></th>
+        </tr>
+    <% end %>
+</table>
