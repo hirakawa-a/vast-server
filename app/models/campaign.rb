@@ -1,7 +1,7 @@
 class Campaign < ApplicationRecord
     has_many :campaign_cuepoints, dependent: :destroy
     has_many :cuepoints, through: :campaign_cuepoints
-    has_many :results, foreign_key: 'id'
+    has_many :results, foreign_key: 'id', dependent: :destroy
     
     
     validates_datetime :end_at, on_or_after: :start_at

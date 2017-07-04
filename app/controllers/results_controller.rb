@@ -1,6 +1,6 @@
 class ResultsController < ApplicationController
   def index
-    @results = Result.all.order(cuepoint_id: :asc)
+    @results = Result.all.order(cuepoint_id: :desc)
   end
   
   
