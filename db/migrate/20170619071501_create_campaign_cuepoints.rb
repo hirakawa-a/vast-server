@@ -5,6 +5,7 @@ class CreateCampaignCuepoints < ActiveRecord::Migration[5.0]
       t.references :cuepoint, foreign_key: true
 
       t.timestamps
+      
     end
   end
 end

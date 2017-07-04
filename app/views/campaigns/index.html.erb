@@ -1,5 +1,5 @@
-<h1>キャンペーン一覧</h1>
-<%= link_to '登録', new_path, class: 'btn' %>
+<h1>Campaign一覧</h1>
+<%= link_to '登録', registration_path, class: 'btn' %>
 <table class="table">
     <tr>
         <th>id</th>
@@ -12,7 +12,7 @@
     </tr>
     <% @campaigns.each do |campaign| %>
         <tr>
-            <th><%= campaign.id %></th>
+            <th><%= link_to campaign.id, edit_campaign_path(campaign) %></th>
             <th><%= campaign.name %></th>
             <th><%= campaign.start_at %></th>
             <th><%= campaign.end_at %></th>
@@ -22,3 +22,4 @@
         </tr>
     <% end %>
 </table>
+

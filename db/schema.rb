@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170619071501) do
+ActiveRecord::Schema.define(version: 20170626063559) do
 
   create_table "campaign_cuepoints", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "campaign_id"
@@ -44,8 +44,12 @@ ActiveRecord::Schema.define(version: 20170619071501) do
     t.integer  "count_end"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["campaign_id"], name: "index_results_on_campaign_id", using: :btree
+    t.index ["cuepoint_id"], name: "index_results_on_cuepoint_id", using: :btree
   end
 
   add_foreign_key "campaign_cuepoints", "campaigns"
   add_foreign_key "campaign_cuepoints", "cuepoints"
+  add_foreign_key "results", "campaigns"
+  add_foreign_key "results", "cuepoints"
 end

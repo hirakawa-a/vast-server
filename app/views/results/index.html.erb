@@ -1,0 +1,21 @@
+<h1>Results一覧</h1>
+<table class="table">
+    <tr>
+        <th>id</th>
+        <th>campaign</th>
+        <th>id</th>
+        <th>cue point</th>
+        <th>start</th>
+        <th>complete</th>
+    </tr>
+    <% @results.each do |result| %>
+        <tr>
+            <th><%= result.campaign_id %></th>
+            <th><%= Campaign.find(result.campaign_id).name %></th>
+            <th><%= result.cuepoint_id %></th>
+            <th><%= Cuepoint.find(result.cuepoint_id).name %></th>
+            <th><%= result.count_start %></th>
+            <th><%= result.count_end %></th>
+        </tr>
+    <% end %>
+</table>

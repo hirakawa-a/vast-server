@@ -1,2 +1,24 @@
-<h1>Campaigns#edit</h1>
-<p>Find me in app/views/campaigns/edit.html.erb</p>
+<h1>キャンペーン編集ページ</h1>
+
+<%= form_for(@campaign) do |f| %>
+  <%= f.label :name, 'Name' %>
+　<%= f.text_field :name, class: 'form-control' %>
+　<%= f.label :start_at, 'Start at'%>
+　<%= f.datetime_local_field :start_at, class: 'form-control' %>
+　<%= f.label :start_at, 'End at'%>
+　<%= f.datetime_local_field :end_at, class: 'form-control' %>
+　<%= f.label :limit_start, 'Limit Start'%>
+　<%= f.number_field :limit_start, class: 'form-control' %>
+　<%= f.label :movie_url, 'Movie url' %>
+　<%= f.url_field :movie_url, class: 'form-control' %>
+  <%= f.label :cuepoint, 'Cuepoint' %>
+    <%= collection_check_boxes(:campaign, :cuepoint_ids, Cuepoint.all, :id, :name) do |b| %>
+      <%= b.label { b.check_box + b.text } %>
+    <% end %>
+　<%= f.submit '登録', class: 'btn btn-success btn-xs' %>
+<% end %>
+<div>
+  <%= link_to '削除', @campaign, method: :delete, data: { confirm: "You sure?"}, class: 'btn btn-danger btn-xs' %>
+</div>
+
+<%= link_to '一覧に戻る', root_url %>

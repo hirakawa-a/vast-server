@@ -1,2 +1,39 @@
-<h1>Campaigns#new</h1>
-<p>Find me in app/views/campaigns/new.html.erb</p>
+<div class="row">
+  <div class="col-xs-offset-3 col-xs-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">登録</div>
+      <div class="panel-body">
+        <%= form_for(@campaign, url: registration_path) do |f| %>
+          <div class="form-group">
+            <%= f.label :name, 'Name' %>
+            <%= f.text_field :name, class: 'form-control' %>
+            <%= f.label :start_at, 'Start at'%>
+            <%= f.datetime_local_field :start_at, class: 'form-control' %>
+            <%= f.label :start_at, 'End at'%>
+            <%= f.datetime_local_field :end_at, class: 'form-control' %>
+            <%= f.label :limit_start, 'Limit Start'%>
+            <%= f.number_field :limit_start, class: 'form-control' %>
+ 
+            <%= f.label :movie_url, 'Movie url' %>
+            <%= f.url_field :movie_url, class: 'form-control' %>
+
+            <%= f.label :cuepoint, 'Cuepoint' %>
+            <%= collection_check_boxes(:campaign, :cuepoint_ids, Cuepoint.all, :id, :name) do |b| %>
+              <%= b.label { b.check_box + b.text } %>
+              <%# @cuepoints.each do |cuepoint| %>
+                <ul>
+                <%# if @campaign %>
+                <%# checked = @campaign.cuepoints.exists?(cuepoint) ? true : false %>
+                <%# end %>
+                <%#= f.check_box( :cuepoints_ids, {name: 'campaign[cuepoint_ids][]', multiple: true, checked: checked }, cuepoint.id, "") %>
+                <%#= cuepoint.name %>
+                </ul>
+            <% end %>
+
+            <%= f.submit '登録'%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

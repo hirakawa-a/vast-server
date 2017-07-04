@@ -1,2 +1,16 @@
-<h1>Cuepoint#new</h1>
-<p>Find me in app/views/cuepoint/new.html.erb</p>
+<div class="row">
+  <div class="col-xs-offset-3 col-xs-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">登録</div>
+      <div class="panel-body">
+        <%= form_for(@cuepoint, url: registration_cuepoint_path) do |f| %>
+          <div class="form-group">
+            <%= f.label :name, 'Name' %>
+            <%= f.text_field :name, class: 'form-control' %>
+            <%= f.submit '登録'%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

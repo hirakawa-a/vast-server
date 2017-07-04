@@ -1,2 +1,18 @@
-<h1>Cuepoint#index</h1>
-<p>Find me in app/views/cuepoint/index.html.erb</p>
+<h1>Cuepoint一覧</h1>
+<%= link_to '登録', registration_cuepoint_path, class: 'btn' %>
+<table class="table">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>create</th>
+        <th>update</th>
+    </tr>
+    <% @cuepoints.each do |cuepoint| %>
+        <tr>
+            <th><%= link_to cuepoint.id, edit_cuepoint_path(cuepoint) %></th>
+            <th><%= cuepoint.name %></th>
+            <th><%= cuepoint.created_at %></th>
+            <th><%= cuepoint.updated_at %></th>
+        </tr>
+    <% end %>
+</table>
