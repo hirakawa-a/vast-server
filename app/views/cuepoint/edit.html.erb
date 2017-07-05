@@ -14,5 +14,5 @@
   <%= f.submit '登録', class: 'btn btn-success btn-xs' %>
 <% end %>
   <%= link_to '削除', @cuepoint, method: :delete, data: { confirm: "You sure?"}, class: 'btn btn-danger btn-xs' %>
-  <%= link_to '中止', cuepoint_index_url %>
+  <%= link_to '中止', cuepoint_index_url, class: 'btn btn-default btn-xs' %>
 </div>
