@@ -29,7 +29,7 @@ class CampaignsController < ApplicationController
         CampaignCuepoint.create(cuepoint_id: cuepoint_id)
       end
       flash[:success] = '登録に成功しました。'
-      redirect_to registration_path
+      redirect_to root_path
     else
       flash.now[:danger] = '登録に失敗しました。'
       render :new
@@ -56,7 +56,7 @@ class CampaignsController < ApplicationController
   def destroy
     @campaign = Campaign.find(params[:id])
     @campaign.destroy
-    flash[:success] = 'キャンペーンは正常に削除されました。'
+    flash[:danger] = 'キャンペーンは正常に削除されました。'
     redirect_to root_url
   end
   

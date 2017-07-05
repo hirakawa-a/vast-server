@@ -13,7 +13,7 @@ class CuepointController < ApplicationController
     @cuepoints = Cuepoint.all
     if @cuepoint.save
       flash[:success] = '登録に成功しました。'
-      redirect_to root_url
+      redirect_to cuepoint_index_url
     else
       flash.now[:danger] = '登録に失敗しました。'
       render :new
@@ -30,7 +30,7 @@ class CuepointController < ApplicationController
     
     if @cuepoint.update(cuepoint_params)
       flash[:success] = '正常に更新されました。'
-      redirect_to root_url
+      redirect_to cuepoint_index_url
     else
       flash.now[:danger] = '更新されませんでした。'
       render :edit

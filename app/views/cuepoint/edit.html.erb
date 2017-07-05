@@ -4,15 +4,15 @@
   <%= f.label :name, 'Name' %>
   <%#= f.text_field :name %>
 　<%= f.text_field :name, class: 'form-control' %>
-<% end %>
 <%#= form_for(@campaign) do |f| %>
 　<%#= f.label :movie_url, 'VAST URL' %>
 　<%#= f.url_field :movie_url, class: 'form-control' %>
-　<%#= f.submit '登録', class: 'btn btn-success btn-xs' %>
-<%# end %>
 <p>VAST URL : 
 <%= vast_url(@cuepoint) %>
 </p>
 <div>
+  <%= f.submit '登録', class: 'btn btn-success btn-xs' %>
+<% end %>
   <%= link_to '削除', @cuepoint, method: :delete, data: { confirm: "You sure?"}, class: 'btn btn-danger btn-xs' %>
+  <%= link_to '中止', cuepoint_index_url %>
 </div>
