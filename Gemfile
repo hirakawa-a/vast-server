@@ -59,3 +59,7 @@ gem 'kaminari'
 group :production do
   gem 'pg'
 end
+
+gem 'rspec-rails'
+
+gem 'factory_girl_rails'
